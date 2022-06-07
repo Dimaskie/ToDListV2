@@ -1,0 +1,98 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-repeat: no-repeat;
+    background: #141E30;  /* fallback for old browsers */
+    background-size: cover;
+    /* height: 100vh; */
+    background-color: -webkit-linear-gradient(to bottom, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-attachment: fixed;
+
+
+}
+header{
+    text-align: center;
+    margin-top: 4rem;
+    color: white;
+    position: relative;
+    height: 40%;
+}
+.toDoContainer{
+    position: absolute;
+    left:50%;
+    transform: translate(-50%);
+    background: #111d33;
+    border-radius: 50px;
+    margin-top: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+   
+}
+.textBox{
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    float:left;
+    width: 0px;
+    transition: 0.7s ease;
+
+}
+#pencil{
+    width: 35px;
+    height: 35px;
+    background-color: #111d33;
+    padding: .6rem;
+    border-radius: 50px;
+    color: #509ff8;
+    float: right;
+    transition: 0.4s ease;
+    margin: .3rem;
+}
+.toDoContainer:hover .textBox,
+.textBox:focus{
+    width: 200px;
+    margin: 0 10px;
+}
+.toDoContainer:hover  #pencil,
+.textBox:focus #pencil{
+    background-color:#509ff8 ;
+    color: #111d33
+}
+#toDoListContainer{
+    color: white;
+    margin-top: 8rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.toDoItem{
+    margin-top: 1rem;
+    width: 20rem;
+    background: rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.toDoInteractions{
+    width: 17%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.check,.trash{
+    cursor: pointer;
+    transition: .2s ease;
+}
+.check:hover,.trash:hover{
+    color: #509ff8
+}
