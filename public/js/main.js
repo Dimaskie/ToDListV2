@@ -43,9 +43,12 @@ function newItem(){
     // console.log(newToDo)
 }
 
-btn.addEventListener('click',function(){
+btn.addEventListener('click',function(e){
+    // console.log(this)
     if(document.getElementById('toDo').value != ''){
         newItem();
+        trash();
+        check();
     }
 })
 document.querySelector('.textBox').addEventListener('keypress',function(e){
@@ -53,17 +56,35 @@ document.querySelector('.textBox').addEventListener('keypress',function(e){
     if(e.key === 'Enter' && document.getElementById('toDo').value != ''){
         newItem();
         trash();
+        check();
     }
 })
+
+
 function trash(){
     const trash = document.querySelectorAll('.trash').
-    forEach(btn=>{
-        btn.addEventListener('click',deleteItem)
-        console.log(btn)
-    })
-    
-    function deleteItem(){
-        alert('oi')
+    forEach(elem=>{
+        // console.log(elem)
+        // console.log('--------------')
+        elem.addEventListener('click',function(){
+            const toDoItem = elem.parentElement.parentElement
+            // console.log(toDoItem)
+            toDoItem.remove();
+        
+        })
     }
+    )
+}
 
+function check(){
+    const check = document.querySelectorAll('.check').
+    forEach(check =>{
+        check.addEventListener('click',function(){
+            console.log(check)
+            const toDoItem = check.parentElement.parentElement;
+            const text = toDoItem.firstChild
+            text.style.textDecoration = 'line-through';
+            console.log(text)
+        })
+    })
 }
