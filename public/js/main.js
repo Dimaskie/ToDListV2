@@ -63,7 +63,7 @@ function trash(){
     })
     
     function deleteItem(){
-        alert('ola')
+        alert('oi')
     }
 
 }
