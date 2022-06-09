@@ -1,7 +1,8 @@
 const btn = document.getElementById('pencil')
 
+const container = document.getElementById('toDoListContainer')
+
 function newItem(){
-    const container = document.getElementById('toDoListContainer')
     //toDoItem
     const toDoItem = document.createElement('div')
     toDoItem.classList.add('toDoItem')
@@ -45,7 +46,10 @@ function newItem(){
 
 btn.addEventListener('click',function(e){
     // console.log(this)
-    if(document.getElementById('toDo').value != ''){
+    if(document.getElementById('toDo').value == ''){
+        alert('Enter a task!')
+    }
+    else if(document.getElementById('toDo').value != ''){
         newItem();
         trash();
         check();
@@ -53,7 +57,10 @@ btn.addEventListener('click',function(e){
 })
 document.querySelector('.textBox').addEventListener('keypress',function(e){
     // console.log(e)
-    if(e.key === 'Enter' && document.getElementById('toDo').value != ''){
+    if(e.key === 'Enter' && document.getElementById('toDo').value == ''){
+        alert('Enter a task!')
+    }
+    else if(e.key === 'Enter' && document.getElementById('toDo').value != ''){
         newItem();
         trash();
         check();
@@ -76,15 +83,31 @@ function trash(){
     )
 }
 
+// function check(){
+//     const check = document.querySelectorAll('.check').
+//     forEach(elem =>{
+//         console.log('elementos')
+//         elem.addEventListener('click',function(){
+//             const toDoItem = elem.parentElement.parentElement;
+//             const text = toDoItem.firstChild
+//             console.log(text.innerText)
+//             text.style.textDecoration = 'line-through';
+//             // console.log(text)
+//             // console.log(container)
+            
+//         })
+//     })
+// }
+
 function check(){
-    const check = document.querySelectorAll('.check').
-    forEach(check =>{
-        check.addEventListener('click',function(){
-            console.log(check)
-            const toDoItem = check.parentElement.parentElement;
-            const text = toDoItem.firstChild
+    let check = document.querySelectorAll('.check');
+    for(elem = 0; elem<check.length;elem++){
+        let checkBtn = check[elem].addEventListener('click',function(){
+            console.log(this)
+            let toDoItem = this.parentElement.parentElement;
+            let text = toDoItem.firstChild
+            console.log(text.innerText)
             text.style.textDecoration = 'line-through';
-            console.log(text)
         })
-    })
+    }
 }
