@@ -96,3 +96,6 @@ header{
 .check:hover,.trash:hover{
     color: #509ff8
 }
+.checked{
+    text-decoration: line-through;
+}

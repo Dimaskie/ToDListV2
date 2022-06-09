@@ -83,31 +83,19 @@ function trash(){
     )
 }
 
-// function check(){
-//     const check = document.querySelectorAll('.check').
-//     forEach(elem =>{
-//         console.log('elementos')
-//         elem.addEventListener('click',function(){
-//             const toDoItem = elem.parentElement.parentElement;
-//             const text = toDoItem.firstChild
-//             console.log(text.innerText)
-//             text.style.textDecoration = 'line-through';
-//             // console.log(text)
-//             // console.log(container)
-            
-//         })
-//     })
-// }
-
 function check(){
     let check = document.querySelectorAll('.check');
     for(elem = 0; elem<check.length;elem++){
-        let checkBtn = check[elem].addEventListener('click',function(){
-            console.log(this)
+            check[elem].onclick = function(){
             let toDoItem = this.parentElement.parentElement;
             let text = toDoItem.firstChild
-            console.log(text.innerText)
-            text.style.textDecoration = 'line-through';
-        })
+            text.classList.toggle('checked')
+            toDoItem.classList.add(`elem${elem}`)
+            
+            if(text.classList.contains('checked')){
+                container.append(toDoItem)
+            }
+
+        }
     }
 }
